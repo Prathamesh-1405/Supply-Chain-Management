@@ -32,7 +32,7 @@
         android:textColor="#FFFFFF"
         android:textSize="16dp"
         app:layout_constraintBottom_toTopOf="@+id/textView5"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextMultiLine2"
+        app:layout_constraintEnd_toStartOf="@+id/companyNameField"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
@@ -47,7 +47,7 @@
         android:textColor="#FFFFFF"
         android:textSize="16dp"
         app:layout_constraintBottom_toTopOf="@+id/textView6"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextMultiLine"
+        app:layout_constraintEnd_toStartOf="@+id/addressField"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
@@ -62,7 +62,7 @@
         android:textColor="#FFFFFF"
         android:textSize="16dp"
         app:layout_constraintBottom_toTopOf="@+id/textView7"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextMultiLine3"
+        app:layout_constraintEnd_toStartOf="@+id/cityField"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
@@ -77,7 +77,7 @@
         android:textColor="#FFFFFF"
         android:textSize="16dp"
         app:layout_constraintBottom_toTopOf="@+id/textView8"
-        app:layout_constraintEnd_toStartOf="@+id/editTextNumber"
+        app:layout_constraintEnd_toStartOf="@+id/pinCodeField"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
@@ -92,7 +92,7 @@
         android:textColor="#FFFFFF"
         android:textSize="16dp"
         app:layout_constraintBottom_toTopOf="@+id/textView9"
-        app:layout_constraintEnd_toStartOf="@+id/spinner"
+        app:layout_constraintEnd_toStartOf="@+id/stateField"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
@@ -107,7 +107,7 @@
         android:textColor="#FFFFFF"
         android:textSize="16dp"
         app:layout_constraintBottom_toTopOf="@+id/textView10"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextMultiLine6"
+        app:layout_constraintEnd_toStartOf="@+id/gstNoField"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
@@ -122,7 +122,7 @@
         android:textColor="#FFFFFF"
         android:textSize="16dp"
         app:layout_constraintBottom_toTopOf="@+id/textView11"
-        app:layout_constraintEnd_toStartOf="@+id/spinner2"
+        app:layout_constraintEnd_toStartOf="@+id/companyInSezField"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
@@ -137,7 +137,7 @@
         android:textColor="#FFFFFF"
         android:textSize="16dp"
         app:layout_constraintBottom_toTopOf="@+id/textView12"
-        app:layout_constraintEnd_toStartOf="@+id/spinner3"
+        app:layout_constraintEnd_toStartOf="@+id/companyTypeField"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
@@ -152,7 +152,7 @@
         android:textColor="#FFFFFF"
         android:textSize="16dp"
         app:layout_constraintBottom_toTopOf="@+id/textView13"
-        app:layout_constraintEnd_toStartOf="@+id/spinner4"
+        app:layout_constraintEnd_toStartOf="@+id/supplierTypeField"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView11" />
@@ -167,7 +167,7 @@
         android:textColor="#FFFFFF"
         android:textSize="16dp"
         app:layout_constraintBottom_toTopOf="@+id/textView14"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextMultiLine4"
+        app:layout_constraintEnd_toStartOf="@+id/distanceFromAndheriField"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView12" />
@@ -181,155 +181,155 @@
         android:text="Distance From Vasai"
         android:textColor="#FFFFFF"
         android:textSize="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextMultiLine5"
+        app:layout_constraintBottom_toTopOf="@+id/addCompanyBtn"
+        app:layout_constraintEnd_toStartOf="@+id/distanceFromVasaiField"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
     <EditText
-        android:id="@+id/editTextNumber"
+        android:id="@+id/pinCodeField"
         android:layout_width="165dp"
         android:layout_height="40dp"
         android:backgroundTint="#FFFFFF"
         android:ems="10"
         android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/spinner"
+        app:layout_constraintBottom_toTopOf="@+id/stateField"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textView7"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine3" />
+        app:layout_constraintTop_toBottomOf="@+id/cityField" />
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/stateField"
         android:layout_width="165dp"
         android:layout_height="40dp"
         android:backgroundTint="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine6"
+        app:layout_constraintBottom_toTopOf="@+id/gstNoField"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textView8"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumber" />
+        app:layout_constraintTop_toBottomOf="@+id/pinCodeField" />
 
     <Spinner
-        android:id="@+id/spinner2"
+        android:id="@+id/companyInSezField"
         android:layout_width="165dp"
         android:layout_height="40dp"
         android:backgroundTint="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/spinner3"
+        app:layout_constraintBottom_toTopOf="@+id/companyTypeField"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textView10"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine6" />
+        app:layout_constraintTop_toBottomOf="@+id/gstNoField" />
 
     <Spinner
-        android:id="@+id/spinner3"
+        android:id="@+id/companyTypeField"
         android:layout_width="165dp"
         android:layout_height="40dp"
         android:backgroundTint="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/spinner4"
+        app:layout_constraintBottom_toTopOf="@+id/supplierTypeField"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textView11"
-        app:layout_constraintTop_toBottomOf="@+id/spinner2" />
+        app:layout_constraintTop_toBottomOf="@+id/companyInSezField" />
 
     <Spinner
-        android:id="@+id/spinner4"
+        android:id="@+id/supplierTypeField"
         android:layout_width="165dp"
         android:layout_height="40dp"
         android:backgroundTint="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine4"
+        app:layout_constraintBottom_toTopOf="@+id/distanceFromAndheriField"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textView12"
-        app:layout_constraintTop_toBottomOf="@+id/spinner3" />
+        app:layout_constraintTop_toBottomOf="@+id/companyTypeField" />
 
     <EditText
-        android:id="@+id/editTextTextMultiLine"
+        android:id="@+id/addressField"
         android:layout_width="165dp"
         android:layout_height="40dp"
         android:backgroundTint="#FFFFFF"
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine3"
+        app:layout_constraintBottom_toTopOf="@+id/cityField"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textView5"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine2" />
+        app:layout_constraintTop_toBottomOf="@+id/companyNameField" />
 
     <EditText
-        android:id="@+id/editTextTextMultiLine2"
+        android:id="@+id/companyNameField"
         android:layout_width="165dp"
         android:layout_height="40dp"
         android:backgroundTint="#FFFFFF"
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine"
+        app:layout_constraintBottom_toTopOf="@+id/addressField"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textView4"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <EditText
-        android:id="@+id/editTextTextMultiLine3"
+        android:id="@+id/cityField"
         android:layout_width="165dp"
         android:layout_height="40dp"
         android:backgroundTint="#FFFFFF"
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
-        app:layout_constraintBottom_toTopOf="@+id/editTextNumber"
+        app:layout_constraintBottom_toTopOf="@+id/pinCodeField"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine" />
+        app:layout_constraintTop_toBottomOf="@+id/addressField" />
 
     <EditText
-        android:id="@+id/editTextTextMultiLine4"
+        android:id="@+id/distanceFromAndheriField"
         android:layout_width="165dp"
         android:layout_height="40dp"
         android:backgroundTint="#FFFFFF"
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine5"
+        app:layout_constraintBottom_toTopOf="@+id/distanceFromVasaiField"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textView13"
-        app:layout_constraintTop_toBottomOf="@+id/spinner4" />
+        app:layout_constraintTop_toBottomOf="@+id/supplierTypeField" />
 
     <EditText
-        android:id="@+id/editTextTextMultiLine5"
+        android:id="@+id/distanceFromVasaiField"
         android:layout_width="165dp"
         android:layout_height="40dp"
         android:backgroundTint="#FFFFFF"
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/addCompanyBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textView14"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine4" />
+        app:layout_constraintTop_toBottomOf="@+id/distanceFromAndheriField" />
 
     <EditText
-        android:id="@+id/editTextTextMultiLine6"
+        android:id="@+id/gstNoField"
         android:layout_width="165dp"
         android:layout_height="40dp"
         android:backgroundTint="#FFFFFF"
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
-        app:layout_constraintBottom_toTopOf="@+id/spinner2"
+        app:layout_constraintBottom_toTopOf="@+id/companyInSezField"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textView9"
-        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+        app:layout_constraintTop_toBottomOf="@+id/stateField" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/addCompanyBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
