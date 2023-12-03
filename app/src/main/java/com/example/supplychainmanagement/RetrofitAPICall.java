@@ -1,13 +1,19 @@
 package com.example.supplychainmanagement;
+import android.util.JsonReader;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
 public interface RetrofitAPICall {
-    @Headers({"Accept: application/json","source-name: streamlining-inventory-management"})
+    String URL_BASE = "http://18.209.66.151/";
+
+    @Headers({"Content-Type: application/json","Accept: application/json","source-name: streamlining-inventory-management"})
     @POST("add-company")
-        // on below line specifying the method name which we have to call.
-    Call<CompanyObject> addCompany(@Body CompanyObject companyObject);
+    public Call<CompanyObject> addCompany(@Body String body);
 
 }

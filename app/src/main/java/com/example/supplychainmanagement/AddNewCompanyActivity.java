@@ -12,16 +12,25 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Spinner;
+
+import okhttp3.OkHttpClient;
+import okhttp3.Response;
 import retrofit2.Retrofit;
 import androidx.appcompat.app.AppCompatActivity;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+
 import retrofit2.Call;
 import retrofit2.Callback;
-import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class AddNewCompanyActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     Button addCompanyBtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,25 +38,25 @@ public class AddNewCompanyActivity extends AppCompatActivity implements AdapterV
         addCompanyBtn = findViewById(R.id.addCompanyBtn);
 
         Spinner spinner1 = findViewById(R.id.stateField);
-        ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this,R.array.stateSpinner,android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this, R.array.stateSpinner, android.R.layout.simple_spinner_item);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner1.setAdapter(adapter1);
         spinner1.setOnItemSelectedListener(this);
 
         Spinner spinner2 = findViewById(R.id.companyInSezField);
-        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this,R.array.companyInSezSpinner,android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this, R.array.companyInSezSpinner, android.R.layout.simple_spinner_item);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner2.setAdapter(adapter2);
         spinner2.setOnItemSelectedListener(this);
 
         Spinner spinner3 = findViewById(R.id.companyTypeField);
-        ArrayAdapter<CharSequence> adapter3 = ArrayAdapter.createFromResource(this,R.array.companyTypeSpinner,android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter3 = ArrayAdapter.createFromResource(this, R.array.companyTypeSpinner, android.R.layout.simple_spinner_item);
         adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner3.setAdapter(adapter3);
         spinner3.setOnItemSelectedListener(this);
 
         Spinner spinner4 = findViewById(R.id.supplierTypeField);
-        ArrayAdapter<CharSequence> adapter4 = ArrayAdapter.createFromResource(this,R.array.supplierTypeSpinner              ,android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter4 = ArrayAdapter.createFromResource(this, R.array.supplierTypeSpinner, android.R.layout.simple_spinner_item);
         adapter4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner4.setAdapter(adapter4);
         spinner4.setOnItemSelectedListener(this);
@@ -84,20 +93,22 @@ public class AddNewCompanyActivity extends AppCompatActivity implements AdapterV
                 String companyType = companyTypeField.getSelectedItem().toString();
                 String supplierType = supplierTypeField.getSelectedItem().toString();
                 Float distanceFromAndheri = Float.parseFloat(distanceFromAndheriField.getText().toString());
-                Float distanceFromVasai=  Float.parseFloat(distanceFromVasaiField.getText().toString());
+                Float distanceFromVasai = Float.parseFloat(distanceFromVasaiField.getText().toString());
+                Log.d("AddNewCompanyActivity","Data collected");
                 postData(companyName, address, city, pinCode, state, gstNo, companyInSez, companyType, supplierType, distanceFromAndheri, distanceFromVasai);
+
 
             }
         });
     }
-    private void postData(String name, String address, String city, String pincode, String state, String gstNo, String companyInSez, String companyType, String supplierType, Float distanceFromAndheri, Float distanceFromVasai) {
 
+    private void postData(String name, String address, String city, String pincode, String state, String gstNo, String companyInSez, String companyType, String supplierType, Float distanceFromAndheri, Float distanceFromVasai) {
         // below line is for displaying our progress bar.
 
         // on below line we are creating a retrofit
         // builder and passing our base url
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://34.228.43.229/")
+                .baseUrl(RetrofitAPICall.URL_BASE)
                 // as we are sending data in json format so
                 // we have to add Gson converter factory
                 .addConverterFactory(GsonConverterFactory.create())
@@ -106,33 +117,44 @@ public class AddNewCompanyActivity extends AppCompatActivity implements AdapterV
         // below line is to create an instance for our retrofit api class.
         RetrofitAPICall retrofitAPI = retrofit.create(RetrofitAPICall.class);
 
-        // passing data from our text fields to our modal class.
-        CompanyObject modal = new CompanyObject(name, address,city, pincode, state, gstNo, companyInSez, companyType, supplierType, distanceFromAndheri.floatValue(), distanceFromAndheri.floatValue());
-        // calling a method to create a post and passing our modal class.
-        Call<CompanyObject> call = retrofitAPI.addCompany(modal);
+        try {
+            JSONObject paramObject = new JSONObject();
+            paramObject.put("name", new String(name));
+            paramObject.put("address", new String(address));
+            paramObject.put("city", new String(city));
+            paramObject.put("pincode", new String(pincode));
+            paramObject.put("state", new String(state));
+            paramObject.put("gst_no", new String(gstNo));
+            paramObject.put("company_in_sez", new String(companyInSez));
+            paramObject.put("company_type", new String(companyType));
+            paramObject.put("supplier_type", new String(supplierType));
+            paramObject.put("distance_from_andheri", new Float(distanceFromAndheri));
+            paramObject.put("distance_from_vasai", new Float(distanceFromVasai));
 
-        // on below line we are executing our method.
-        call.enqueue(new Callback<CompanyObject>() {
-            @Override
-            public void onResponse(Call<CompanyObject> call, Response<CompanyObject> response) {
-                // this method is called when we get response from our api.
-                Toast.makeText(AddNewCompanyActivity.this, "Data added to Server", Toast.LENGTH_SHORT).show();
+//            Call<CompanyObject> apiCall = retrofitAPI.addCompany(new CompanyObject(name,address,city,pincode, state, gstNo, companyInSez, companyType, supplierType, distanceFromAndheri, distanceFromVasai));
+            Call<CompanyObject> apiCall = retrofitAPI.addCompany(paramObject.toString());
 
+//            apiCall.execute();
 
+//            async function call
+            Log.d("AddNewCompanyActivity","Before api call");
+            apiCall.enqueue(new Callback<CompanyObject>() {
 
-                // we are getting response from our body
-                // and passing it to our modal class.
-                CompanyObject responseFromAPI = response.body();
-            }
+                @Override
+                public void onResponse(Call<CompanyObject> call, retrofit2.Response<CompanyObject> response) {
+                    Toast.makeText(getApplicationContext(),"Data added !", Toast.LENGTH_SHORT).show();
+                }
 
-            @Override
-            public void onFailure(Call<CompanyObject> call, Throwable t) {
-                // setting text to our text view when
-                // we get error response from API.
-                Toast.makeText(AddNewCompanyActivity.this, "Failed to add data!", Toast.LENGTH_SHORT).show();
+                @Override
+                public void onFailure(Call<CompanyObject> call, Throwable t) {
+                    Toast.makeText(getApplicationContext(),"Failed to add data !", Toast.LENGTH_SHORT).show();
 
-            }
-        });
+                }
+
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
