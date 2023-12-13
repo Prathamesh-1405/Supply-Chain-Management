@@ -1,6 +1,8 @@
 package com.example.supplychainmanagement;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.net.wifi.hotspot2.ConfigParser;
 import android.os.Bundle;
 import android.util.Log;
@@ -141,8 +143,7 @@ public class AddNewCompanyActivity extends AppCompatActivity implements AdapterV
 
                 @Override
                 public void onResponse(Call<String> call, retrofit2.Response<String> response) {
-                    Toast.makeText(getApplicationContext(), response.headers().toString() , Toast.LENGTH_SHORT).show();
-                    Toast.makeText(getApplicationContext(), response.body().toString() , Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(AddNewCompanyActivity.this,PurchaseActivity.class));
                 }
 
                 @Override
