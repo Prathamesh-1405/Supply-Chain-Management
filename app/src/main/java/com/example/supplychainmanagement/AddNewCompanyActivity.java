@@ -84,7 +84,6 @@ public class AddNewCompanyActivity extends AppCompatActivity implements AdapterV
                 String state = stateSelectMenu.getSelectedItem().toString();
                 String gstNo = gstNoField.getText().toString();
                 String companyInSez = companyInSezField.getSelectedItem().toString();
-
 //                if(companyInSezField.getSelectedItem().toString() == "Yes"){
 //                    companyInSez = true;
 //                }else{
@@ -128,25 +127,26 @@ public class AddNewCompanyActivity extends AppCompatActivity implements AdapterV
             paramObject.put("company_in_sez", new String(companyInSez));
             paramObject.put("company_type", new String(companyType));
             paramObject.put("supplier_type", new String(supplierType));
-            paramObject.put("distance_from_andheri", new Float(distanceFromAndheri));
-            paramObject.put("distance_from_vasai", new Float(distanceFromVasai));
+            paramObject.put("distance_from_andheri", new Float(distanceFromAndheri).toString());
+            paramObject.put("distance_from_vasai", new Float(distanceFromVasai).toString());
 
 //            Call<CompanyObject> apiCall = retrofitAPI.addCompany(new CompanyObject(name,address,city,pincode, state, gstNo, companyInSez, companyType, supplierType, distanceFromAndheri, distanceFromVasai));
-            Call<CompanyObject> apiCall = retrofitAPI.addCompany(paramObject.toString());
+            Call<String> apiCall = retrofitAPI.addCompany(paramObject.toString());
 
 //            apiCall.execute();
 
 //            async function call
             Log.d("AddNewCompanyActivity","Before api call");
-            apiCall.enqueue(new Callback<CompanyObject>() {
+            apiCall.enqueue(new Callback<String>() {
 
                 @Override
-                public void onResponse(Call<CompanyObject> call, retrofit2.Response<CompanyObject> response) {
-                    Toast.makeText(getApplicationContext(),"Data added !", Toast.LENGTH_SHORT).show();
+                public void onResponse(Call<String> call, retrofit2.Response<String> response) {
+                    Toast.makeText(getApplicationContext(), response.headers().toString() , Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), response.body().toString() , Toast.LENGTH_SHORT).show();
                 }
 
                 @Override
-                public void onFailure(Call<CompanyObject> call, Throwable t) {
+                public void onFailure(Call<String> call, Throwable t) {
                     Toast.makeText(getApplicationContext(),"Failed to add data !", Toast.LENGTH_SHORT).show();
 
                 }

@@ -29,7 +29,7 @@
         android:textColor="#FFFFFF"
         android:textSize="16dp"
         app:layout_constraintBottom_toTopOf="@+id/textView19"
-        app:layout_constraintEnd_toStartOf="@+id/spinner5"
+        app:layout_constraintEnd_toStartOf="@+id/itemField"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
@@ -40,11 +40,11 @@
         android:layout_height="40dp"
         android:paddingLeft="8dp"
         android:paddingTop="8dp"
-        android:text="Rod Daimeter"
+        android:text="Rod Diameter"
         android:textColor="#FFFFFF"
         android:textSize="16dp"
         app:layout_constraintBottom_toTopOf="@+id/textView20"
-        app:layout_constraintEnd_toStartOf="@+id/spinner6"
+        app:layout_constraintEnd_toStartOf="@+id/rodDiameterField"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView18" />
@@ -59,7 +59,7 @@
         android:textColor="#FFFFFF"
         android:textSize="16dp"
         app:layout_constraintBottom_toTopOf="@+id/textView21"
-        app:layout_constraintEnd_toStartOf="@+id/editTextNumber3"
+        app:layout_constraintEnd_toStartOf="@+id/unitWeightField"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView19" />
@@ -74,7 +74,7 @@
         android:textColor="#FFFFFF"
         android:textSize="16dp"
         app:layout_constraintBottom_toTopOf="@+id/textView22"
-        app:layout_constraintEnd_toStartOf="@+id/editTextNumber4"
+        app:layout_constraintEnd_toStartOf="@+id/unitPriceField"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView20" />
@@ -89,7 +89,7 @@
         android:textColor="#FFFFFF"
         android:textSize="16dp"
         app:layout_constraintBottom_toTopOf="@+id/textView23"
-        app:layout_constraintEnd_toStartOf="@+id/editTextNumber2"
+        app:layout_constraintEnd_toStartOf="@+id/quantityField"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView21" />
@@ -103,88 +103,88 @@
         android:text="Total"
         android:textColor="#FFFFFF"
         android:textSize="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/button7"
-        app:layout_constraintEnd_toStartOf="@+id/editTextNumber5"
+        app:layout_constraintBottom_toTopOf="@+id/addItemBtn"
+        app:layout_constraintEnd_toStartOf="@+id/totalField"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView22" />
 
     <Spinner
-        android:id="@+id/spinner5"
+        android:id="@+id/itemField"
         android:layout_width="165dp"
         android:layout_height="40dp"
         android:backgroundTint="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/spinner6"
+        app:layout_constraintBottom_toTopOf="@+id/rodDiameterField"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textView18"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <Spinner
-        android:id="@+id/spinner6"
+        android:id="@+id/rodDiameterField"
         android:layout_width="165dp"
         android:layout_height="40dp"
         android:backgroundTint="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/editTextNumber3"
+        app:layout_constraintBottom_toTopOf="@+id/unitWeightField"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textView19"
-        app:layout_constraintTop_toBottomOf="@+id/spinner5" />
+        app:layout_constraintTop_toBottomOf="@+id/itemField" />
 
     <EditText
-        android:id="@+id/editTextNumber2"
+        android:id="@+id/quantityField"
         android:layout_width="165dp"
         android:layout_height="40dp"
         android:backgroundTint="#FFFFFF"
         android:ems="10"
         android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/editTextNumber5"
+        app:layout_constraintBottom_toTopOf="@+id/totalField"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textView22"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumber4" />
+        app:layout_constraintTop_toBottomOf="@+id/unitPriceField" />
 
     <EditText
-        android:id="@+id/editTextNumber3"
+        android:id="@+id/unitWeightField"
         android:layout_width="165dp"
         android:layout_height="40dp"
         android:backgroundTint="#FFFFFF"
         android:ems="10"
         android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/editTextNumber4"
+        app:layout_constraintBottom_toTopOf="@+id/unitPriceField"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textView20"
-        app:layout_constraintTop_toBottomOf="@+id/spinner6" />
+        app:layout_constraintTop_toBottomOf="@+id/rodDiameterField" />
 
     <EditText
-        android:id="@+id/editTextNumber4"
+        android:id="@+id/unitPriceField"
         android:layout_width="165dp"
         android:layout_height="40dp"
         android:backgroundTint="#FFFFFF"
         android:ems="10"
         android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/editTextNumber2"
+        app:layout_constraintBottom_toTopOf="@+id/quantityField"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textView21"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumber3" />
+        app:layout_constraintTop_toBottomOf="@+id/unitWeightField" />
 
     <EditText
-        android:id="@+id/editTextNumber5"
+        android:id="@+id/totalField"
         android:layout_width="165dp"
         android:layout_height="40dp"
         android:backgroundTint="#FFFFFF"
         android:ems="10"
         android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/button7"
+        app:layout_constraintBottom_toTopOf="@+id/addItemBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textView23"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumber2" />
+        app:layout_constraintTop_toBottomOf="@+id/quantityField" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/addItemBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="48dp"

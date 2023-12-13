@@ -27,22 +27,22 @@
         android:text="Date"
         android:textSize="18dp"
         app:layout_constraintBottom_toTopOf="@+id/textView39"
-        app:layout_constraintEnd_toStartOf="@+id/editTextDate"
+        app:layout_constraintEnd_toStartOf="@+id/dateFieldmd"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView38" />
 
     <EditText
-        android:id="@+id/editTextDate"
+        android:id="@+id/dateFieldmd"
         android:layout_width="165dp"
         android:layout_height="40dp"
         android:ems="10"
         android:inputType="date"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTime"
+        app:layout_constraintBottom_toTopOf="@+id/timeFieldmd"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textView37"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPostalAddress" />
+        app:layout_constraintTop_toBottomOf="@+id/orderNoFieldmd" />
 
     <TextView
         android:id="@+id/textView38"
@@ -53,22 +53,22 @@
         android:text="Order No."
         android:textSize="18dp"
         app:layout_constraintBottom_toTopOf="@+id/textView37"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextPostalAddress"
+        app:layout_constraintEnd_toStartOf="@+id/orderNoFieldmd"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView36" />
 
     <EditText
-        android:id="@+id/editTextTime"
+        android:id="@+id/timeFieldmd"
         android:layout_width="165dp"
         android:layout_height="40dp"
         android:ems="10"
         android:inputType="time"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine9"
+        app:layout_constraintBottom_toTopOf="@+id/netWeightFieldmd"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textView39"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDate" />
+        app:layout_constraintTop_toBottomOf="@+id/dateFieldmd" />
 
     <TextView
         android:id="@+id/textView39"
@@ -79,7 +79,7 @@
         android:text="Time"
         android:textSize="18dp"
         app:layout_constraintBottom_toTopOf="@+id/textView40"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTime"
+        app:layout_constraintEnd_toStartOf="@+id/timeFieldmd"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView37" />
@@ -93,23 +93,23 @@
         android:text="Net Weight"
         android:textSize="18dp"
         app:layout_constraintBottom_toTopOf="@+id/textView41"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextMultiLine9"
+        app:layout_constraintEnd_toStartOf="@+id/netWeightFieldmd"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView39" />
 
     <EditText
-        android:id="@+id/editTextTextMultiLine9"
+        android:id="@+id/netWeightFieldmd"
         android:layout_width="165dp"
         android:layout_height="40dp"
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
-        app:layout_constraintBottom_toTopOf="@+id/editTextNumber12"
+        app:layout_constraintBottom_toTopOf="@+id/apmBillNoFieldmd"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textView40"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTime" />
+        app:layout_constraintTop_toBottomOf="@+id/timeFieldmd" />
 
     <TextView
         android:id="@+id/textView41"
@@ -120,22 +120,22 @@
         android:text="APM Bill No."
         android:textSize="18dp"
         app:layout_constraintBottom_toTopOf="@+id/textView42"
-        app:layout_constraintEnd_toStartOf="@+id/editTextNumber12"
+        app:layout_constraintEnd_toStartOf="@+id/apmBillNoFieldmd"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView40" />
 
     <EditText
-        android:id="@+id/editTextNumber12"
+        android:id="@+id/apmBillNoFieldmd"
         android:layout_width="165dp"
         android:layout_height="40dp"
         android:ems="10"
         android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine10"
+        app:layout_constraintBottom_toTopOf="@+id/vehicleNumberFieldmd"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textView41"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine9" />
+        app:layout_constraintTop_toBottomOf="@+id/netWeightFieldmd" />
 
     <TextView
         android:id="@+id/textView42"
@@ -145,39 +145,39 @@
         android:paddingTop="6dp"
         android:text="Vehicle Number"
         android:textSize="18dp"
-        app:layout_constraintBottom_toTopOf="@+id/button18"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextMultiLine10"
+        app:layout_constraintBottom_toTopOf="@+id/finishBtn"
+        app:layout_constraintEnd_toStartOf="@+id/vehicleNumberFieldmd"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView41" />
 
     <EditText
-        android:id="@+id/editTextTextMultiLine10"
+        android:id="@+id/vehicleNumberFieldmd"
         android:layout_width="165dp"
         android:layout_height="40dp"
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
-        app:layout_constraintBottom_toTopOf="@+id/button18"
+        app:layout_constraintBottom_toTopOf="@+id/finishBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textView42"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumber12" />
+        app:layout_constraintTop_toBottomOf="@+id/apmBillNoFieldmd" />
 
     <EditText
-        android:id="@+id/editTextTextPostalAddress"
+        android:id="@+id/orderNoFieldmd"
         android:layout_width="165dp"
         android:layout_height="40dp"
         android:ems="10"
         android:inputType="textPostalAddress"
-        app:layout_constraintBottom_toTopOf="@+id/editTextDate"
+        app:layout_constraintBottom_toTopOf="@+id/dateFieldmd"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textView38"
         app:layout_constraintTop_toBottomOf="@+id/textView36" />
 
     <Button
-        android:id="@+id/button18"
+        android:id="@+id/finishBtn"
         android:layout_width="113dp"
         android:layout_height="49dp"
         android:layout_marginBottom="44dp"
