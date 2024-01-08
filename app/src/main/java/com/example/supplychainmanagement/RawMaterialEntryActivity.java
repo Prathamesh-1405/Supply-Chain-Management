@@ -25,12 +25,13 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.converter.gson.GsonConverterFactory;
 public class RawMaterialEntryActivity extends AppCompatActivity  {
-    Button finishBtn = findViewById(R.id.finishBtn);
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_raw_material_entry);
+        Button finishBtn = findViewById(R.id.finishBtn);
 
 //        Spinner spinnertype = findViewById(R.id.typeFieldRm);
 //        ArrayAdapter<CharSequence> adaptertype = ArrayAdapter.createFromResource(this, R.array.typeSpinner, android.R.layout.simple_spinner_item);
