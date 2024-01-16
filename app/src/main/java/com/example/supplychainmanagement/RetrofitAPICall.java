@@ -1,8 +1,4 @@
 package com.example.supplychainmanagement;
-import android.util.JsonReader;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -10,7 +6,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
 public interface RetrofitAPICall {
-    String URL_BASE = "http://18.208.212.125/";
+    String URL_BASE = "http://34.229.153.132:5000/";
 
     @Headers({"Content-Type: application/json","Accept: application/json","source-name: streamlining-inventory-management"})
     @POST("add-company")
@@ -24,4 +20,7 @@ public interface RetrofitAPICall {
 
     @POST("material-dispatch")
     public Call<String> materialDispatch(@Body String body);
+
+    @GET("company")
+    public Call<String> getCompanyNames();
 }

@@ -17,6 +17,7 @@ import android.widget.Toast;
 import android.widget.Spinner;
 import retrofit2.Retrofit;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.concurrent.ExecutionException;
@@ -70,12 +71,12 @@ public class RawMaterialEntryActivity extends AppCompatActivity  {
                 try {
                     addRawMaterialEntryFn(companyName, challanNo, type, apmChallanNo, size, quantity, forFieldVal, cuttingSize, cuttingWeight, orderNo, orderSize);
                 } catch (Exception e) {
-                    throw new RuntimeException(e);
+                    e.printStackTrace();
                 }
 
             }
 
-            private void addRawMaterialEntryFn(String companyName, String challanNo, String type, String apmChallanNo, String size, String quantity, String forFieldVal, String cuttingSize, String cuttingWeight, String orderNo, String orderSize) throws Exception {
+            private void addRawMaterialEntryFn(String companyName, String challanNo, String type, String apmChallanNo, String size, String quantity, String forFieldVal, String cuttingSize, String cuttingWeight, String orderNo, String orderSize) {
                 Retrofit retrofit = new Retrofit.Builder()
                         .baseUrl(RetrofitAPICall.URL_BASE)
                         // as we are sending data in json format so
@@ -87,17 +88,22 @@ public class RawMaterialEntryActivity extends AppCompatActivity  {
                 RetrofitAPICall retrofitAPI = retrofit.create(RetrofitAPICall.class);
 
                 JSONObject paramObj = new JSONObject();
-                paramObj.put("comapny_name", new String(companyName));
-                paramObj.put("challan_no", new String(challanNo));
-                paramObj.put("type_", new String(type));
-                paramObj.put("apm_challan_no", new String(apmChallanNo));
-                paramObj.put("size", new String(size));
-                paramObj.put("quantity", new String(quantity));
-                paramObj.put("purpose_for", new String(forFieldVal));
-                paramObj.put("cutting_size", new String(cuttingSize));
-                paramObj.put("cutting_weight", new String(cuttingWeight));
-                paramObj.put("order_no", new String(orderNo));
-                paramObj.put("order_size", new String(orderSize));
+                try {
+                    paramObj.put("comapny_name", new String(companyName));
+                    paramObj.put("challan_no", new String(challanNo));
+                    paramObj.put("type_", new String(type));
+                    paramObj.put("apm_challan_no", new String(apmChallanNo));
+                    paramObj.put("size", new String(size));
+                    paramObj.put("quantity", new String(quantity));
+                    paramObj.put("purpose_for", new String(forFieldVal));
+                    paramObj.put("cutting_size", new String(cuttingSize));
+                    paramObj.put("cutting_weight", new String(cuttingWeight));
+                    paramObj.put("order_no", new String(orderNo));
+                    paramObj.put("order_size", new String(orderSize));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
 
                 Call<String> apiCall = retrofitAPI.addMaterialEntry(paramObj.toString());
                 apiCall.enqueue(new Callback<String>() {
