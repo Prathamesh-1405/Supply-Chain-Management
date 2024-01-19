@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -18,6 +19,7 @@ import org.json.JSONObject;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -27,8 +29,8 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class PurchaseActivity extends AppCompatActivity {
-
     public String data;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,33 +41,38 @@ public class PurchaseActivity extends AppCompatActivity {
         ArrayList items = new ArrayList();
         // Example data for AutoCompleteTextView
         String companyJsonString = fetchCompanyNames();
-        List<String> list = null;
+        ArrayAdapter<String> adapter = null;
+//        List<String> list = null;
         try {
             JSONObject jsonObject = new JSONObject(companyJsonString);
-            String companies  = (String)jsonObject.get("companies");
-            list = new ArrayList<String>(Collections.singleton(companies));
+            String[] companies  = (String[])jsonObject.get("companies");
+            ArrayList<String> list = new ArrayList<String>(Arrays.asList(companies));
             for (int i = 0; i < list.size(); i++) {
                 items.add(list.get(i));
             }
+            String companyArr[] = new String[list.size()];
+            for (int i = 0; i < list.size(); i++) {
+                companyArr[i] = list.get(i);
+            }
+
+           adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line);
+           adapter.addAll(companyArr);
+           autoCompleteTextView.setAdapter(adapter);
+
+            // Set the adapter to AutoCompleteTextView
+         
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
-
         // Create an ArrayAdapter with the data
 //        String companyArr[] = (String[]) items.toArray();
-        String companyArr[] = new String[list.size()];
-        for (int i = 0; i < list.size(); i++) {
-            companyArr[i] = list.get(i);
-        }
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, companyArr);
 
-        // Set the adapter to AutoCompleteTextView
-        autoCompleteTextView.setAdapter(adapter);
 
     }
 
     private String fetchCompanyNames() {
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(RetrofitAPICall.URL_BASE)
                 // as we are sending data in json format so
@@ -83,6 +90,7 @@ public class PurchaseActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     data = response.body();
                     // Process the data here
+                    return;
                 } else {
                     // Handle error
                 }
@@ -91,6 +99,7 @@ public class PurchaseActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<String> call, Throwable t) {
                 // Handle failure
+                t.printStackTrace();
             }
 
 

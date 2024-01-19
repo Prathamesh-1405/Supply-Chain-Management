@@ -2,15 +2,8 @@ package com.example.supplychainmanagement;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
-import android.widget.Button;
-import android.util.Log;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -19,8 +12,6 @@ import retrofit2.Retrofit;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.concurrent.ExecutionException;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -42,7 +33,7 @@ public class RawMaterialEntryActivity extends AppCompatActivity  {
         finishBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Spinner companyNameField = findViewById(R.id.companyNameFieldRm);
+                Spinner companyNameField = findViewById(R.id.autoCompleteTextView);
                 EditText challanNoField = findViewById(R.id.challanNoFieldRm);
                 Spinner typeField = findViewById(R.id.typeFieldRm);
                 EditText apmChallanNoField = findViewById(R.id.apmChallanNo);
